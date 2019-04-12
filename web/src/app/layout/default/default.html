@@ -1,0 +1,41 @@
+<nz-layout class="layout">
+  <nz-header>
+    <div class="logo">APM</div>
+    <ul nz-menu nzTheme="dark" nzMode="horizontal" style="line-height: 64px;">
+      <li
+        nz-menu-item
+        class="link"
+        *ngFor="let item of menus"
+        [routerLink]="item.link"
+        routerLinkActive="ant-menu-item-selected"
+      >{{item.name}}</li>
+    </ul>
+  </nz-header>
+
+  <ng-container *ngIf="!isProject">
+    <nz-content style="padding: 0 50px;">
+      <router-outlet></router-outlet>
+    </nz-content>
+  </ng-container>
+
+  <ng-container *ngIf="isProject">
+    <nz-layout>
+      <nz-sider [nzWidth]="200" style="background:#fff">
+        <ul nz-menu [nzMode]="'inline'" style="height:100%">
+          <li
+            nz-menu-item
+            *ngFor="let item of projectMenus"
+            [routerLink]="item.link"
+            routerLinkActive="ant-menu-item-selected"
+            style="outline: none;"
+          >{{item.name}}</li>
+        </ul>
+      </nz-sider>
+      <nz-layout style="padding:0 24px 24px">
+        <nz-content style="padding: 24px;">
+          <router-outlet></router-outlet>
+        </nz-content>
+      </nz-layout>
+    </nz-layout>
+  </ng-container>
+</nz-layout>

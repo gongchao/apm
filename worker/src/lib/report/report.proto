@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package apm;
+
+message Empty {}
+
+service ReceiveReportService {
+    rpc Push(PushRequest) returns (Empty) {}
+}
+
+message PushRequest {
+    string data =1;
+}

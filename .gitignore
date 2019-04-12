@@ -1,0 +1,45 @@
+
+/.gitmodules
+
+# Project node_modules
+/service/node_modules
+/service/dist
+/service/.idea
+/service/logs
+/worker/node_modules
+/worker/dist
+/worker/.idea
+
+/api/node_modules
+/api/dist
+/api/.idea
+
+/web/node_modules
+/web/dist
+/web/.idea
+
+# dependencies
+/yarn.lock
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+testem.log
+/typings
+yarn-error.log
+
+# System Files
+.DS_Store
+Thumbs.db

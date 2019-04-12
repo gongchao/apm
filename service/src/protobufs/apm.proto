@@ -1,0 +1,128 @@
+syntax = "proto3";
+
+package apm;
+
+message Empty {}
+
+service ProjectService {
+    rpc GetProjectById(FindProjectByIdRequest) returns (ProjectEntity) {}
+    rpc GetProjects(GetProjectRequest) returns (ProjectsResponse) {}
+    rpc CreateOrUpdateProject(ProjectEntity) returns (ProjectEntity) {}
+    rpc DeleteProjectById(FindProjectByIdRequest) returns (Empty) {}
+}
+
+message FindProjectByIdRequest {
+    string id = 1;
+}
+
+message ProjectEntity {
+    string id = 1;
+    string name = 2;
+    string description = 3;
+    int32 rate = 4;
+    int32 create_uid = 5;
+    string create_at = 6;
+    string update_at = 7;
+}
+
+message GetProjectRequest {
+    int32 page = 1;
+    int32 page_size = 2;
+    Query query = 3;
+
+    message Query {
+        string name = 1;
+    }
+}
+
+message ProjectsResponse {
+    repeated ProjectEntity list = 1;
+    int32 total = 2;
+}
+
+service ReceiveReportService {
+    rpc Push(PushRequest) returns (Empty) {}
+}
+
+message PushRequest {
+    string data = 1;
+}
+
+service PerfService {
+    rpc GetNavigationTiming(GetNavigationTimingRequest) returns (GetNavigationTimingResponse) {}
+    rpc GetNavigationTimingGroupByDate(GetNavigationTimingGroupByDateRequest) returns (GetNavigationTimingGroupByDateResponse) {}
+    rpc GetUrls(GetUrlsRequest) returns(GetUrlsResponse) {}
+}
+
+message GetNavigationTimingRequest {
+    string project_id = 1;
+    string url = 2;
+    string s_at = 3;
+    string e_at = 4;
+}
+
+message GetNavigationTimingResponse {
+    Value redirect = 1;
+    Value appCache = 2;
+    Value dns = 3;
+    Value tcp = 4;
+    Value ssl = 5;
+    Value request = 6;
+    Value response = 7;
+    Value processing = 8;
+    Value onLoad = 9;
+    Value unload = 10;
+
+    message Value {
+        int32 value = 1;
+    }
+}
+
+message GetNavigationTimingGroupByDateRequest {
+    string project_id = 1;
+    string url = 2;
+    string s_at = 3;
+    string e_at = 4;
+    string interval = 5;
+}
+
+message GetNavigationTimingGroupByDateResponse {
+    repeated Data data = 1;
+
+    message Data {
+        int32 key = 1;
+        string key_as_string = 2;
+
+        Value redirect = 3;
+        Value appCache = 4;
+        Value dns = 5;
+        Value tcp = 6;
+        Value ssl = 7;
+        Value request = 8;
+        Value response = 9;
+        Value processing = 10;
+        Value onLoad = 11;
+        Value unload = 12;
+
+        message Value {
+            int32 value = 1;
+        }
+    }
+}
+
+message GetUrlsRequest {
+    string project_id = 1;
+    string keyword = 2;
+    string s_at = 3;
+    string e_at = 4;
+    int32 limit = 5;
+}
+
+message GetUrlsResponse {
+    repeated Data data = 1;
+
+    message Data {
+        string key = 1;
+        int32 doc_count = 2;
+    }
+}

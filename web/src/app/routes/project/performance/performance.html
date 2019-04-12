@@ -1,0 +1,50 @@
+<div class="toolbar">
+  <div class="toolbar__item">
+    <span>URL：</span>
+    <div style="display: inline-block">
+      <nz-input-group [nzSuffix]="suffixIconSearch">
+        <input type="text" nz-input [(ngModel)]="query.url" style="width: 230px;" [disabled]="true"/>
+      </nz-input-group>
+      <ng-template #suffixIconSearch>
+        <i nz-icon type="search"></i>
+      </ng-template>
+    </div>
+  </div>
+  <div class="toolbar__item">
+    <span>查询时间：</span>
+    <nz-range-picker [(ngModel)]="query.range" nzShowTime (nzOnOk)="onSearch()"></nz-range-picker>
+  </div>
+
+  <div class="toolbar__item">
+    <button (click)="onSearch()" nz-button nzType="primary"><i nz-icon type="search"></i>Search</button>
+  </div>
+</div>
+
+<nz-card nzTitle="阶段时长占比" [nzLoading]="isDataLoading">
+  <v-chart [forceFit]="true" [height]="240" [data]="data">
+    <v-coord type="rect" direction="LB"></v-coord>
+    <v-tooltip></v-tooltip>
+    <v-legend></v-legend>
+    <v-axis dataKey="State"></v-axis>
+    <v-stack-bar position="State*value" color="key"></v-stack-bar>
+  </v-chart>
+</nz-card>
+
+<nz-card nzTitle="页面加载时间详情" style="margin-top: 30px;" [nzLoading]="isDataGroupByDateLoading" [nzExtra]="extraTemplate">
+  <ng-template #extraTemplate>
+    <nz-select style="width: 120px;" [(ngModel)]="query.interval" (ngModelChange)="onSearch()">
+      <nz-option nzValue="1m" nzLabel="1m"></nz-option>
+      <nz-option nzValue="30m" nzLabel="30m"></nz-option>
+      <nz-option nzValue="1h" nzLabel="1h"></nz-option>
+      <nz-option nzValue="1d" nzLabel="1d"></nz-option>
+    </nz-select>
+  </ng-template>
+
+  <v-chart [forceFit]="true" [height]="320" [data]="dataGroupByDate">
+    <v-tooltip></v-tooltip>
+    <v-axis dataKey="key_as_string"></v-axis>
+    <v-legend></v-legend>
+    <v-line position="key_as_string*value" color="key"></v-line>
+    <v-point position="key_as_string*value" color="key" [size]="4" [style]="{ stroke: '#fff', lineWidth: 1 }" shape="circle"></v-point>
+  </v-chart>
+</nz-card>
