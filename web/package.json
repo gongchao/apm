@@ -22,7 +22,7 @@
     "@antv/data-set": "^0.10.2",
     "core-js": "^2.5.4",
     "lodash": "^4.17.11",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "ng-zorro-antd": "^7.2.0",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
