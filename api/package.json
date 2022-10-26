@@ -27,7 +27,7 @@
     "@nestjs/microservices": "^6.1.1",
     "@nestjs/platform-express": "^6.0.0",
     "copyfiles": "^2.1.0",
-    "grpc": "^1.19.0",
+    "grpc": "^1.24.11",
     "reflect-metadata": "^0.1.12",
     "rimraf": "^2.6.3",
     "rxjs": "^6.3.3"
