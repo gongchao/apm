@@ -29,7 +29,7 @@
     "copyfiles": "^2.1.0",
     "elasticsearch": "^15.4.1",
     "google-proto-files": "^0.20.0",
-    "grpc": "^1.19.0",
+    "grpc": "^1.24.11",
     "moment": "^2.24.0",
     "mysql": "^2.16.0",
     "node-uuid": "^1.4.8",
