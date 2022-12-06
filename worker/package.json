@@ -24,7 +24,7 @@
     "moment": "^2.24.0",
     "node-cron": "^2.0.3",
     "pretty-time": "^1.1.0",
-    "qs": "^6.7.0",
+    "qs": "^6.7.3",
     "rimraf": "^2.6.3",
     "tsconfig-paths": "^3.8.0",
     "useragent": "^2.3.0"
