@@ -24,7 +24,7 @@
     "@nestjs/common": "^6.0.0",
     "@nestjs/core": "^6.0.0",
     "@nestjs/microservices": "^6.0.5",
-    "@nestjs/platform-express": "^6.0.0",
+    "@nestjs/platform-express": "^9.2.1",
     "@nestjs/typeorm": "^6.0.0",
     "copyfiles": "^2.1.0",
     "elasticsearch": "^15.4.1",
