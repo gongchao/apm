@@ -21,10 +21,10 @@
   },
   "dependencies": {
     "@grpc/proto-loader": "^0.4.0",
-    "@nestjs/common": "^6.0.0",
-    "@nestjs/core": "^6.0.0",
+    "@nestjs/common": "^11.1.18",
+    "@nestjs/core": "^11.1.18",
     "@nestjs/microservices": "^6.0.5",
-    "@nestjs/platform-express": "^6.0.0",
+    "@nestjs/platform-express": "^11.1.18",
     "@nestjs/typeorm": "^6.0.0",
     "copyfiles": "^2.1.0",
     "elasticsearch": "^15.4.1",
